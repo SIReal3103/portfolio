@@ -1,0 +1,371 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 240 15% 5%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 12% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 12% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 145 100% 50%;
+    --primary-foreground: 240 15% 5%;
+
+    --secondary: 270 60% 40%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 60%;
+
+    --accent: 270 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 18%;
+    --input: 240 10% 18%;
+    --ring: 145 100% 50%;
+
+    --radius: 0.75rem;
+
+    --neon-green: 145 100% 50%;
+    --neon-green-glow: 145 100% 60%;
+    --deep-purple: 270 60% 40%;
+    --deep-purple-light: 270 50% 55%;
+    --surface-elevated: 240 12% 12%;
+    --surface-glass: 240 15% 8%;
+
+    --gradient-neon: linear-gradient(135deg, hsl(145 100% 50%), hsl(170 100% 45%));
+    --gradient-purple: linear-gradient(135deg, hsl(270 60% 40%), hsl(290 70% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 15% 5%) 0%, hsl(270 30% 12%) 50%, hsl(240 15% 5%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(240 12% 12%) 0%, hsl(240 12% 8%) 100%);
+
+    --shadow-neon: 0 0 20px hsl(145 100% 50% / 0.3), 0 0 60px hsl(145 100% 50% / 0.1);
+    --shadow-purple: 0 0 20px hsl(270 60% 40% / 0.3), 0 0 60px hsl(270 60% 40% / 0.1);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: 'Space Grotesk', sans-serif;
+
+    --sidebar-background: 240 12% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 145 100% 50%;
+    --sidebar-primary-foreground: 240 15% 5%;
+    --sidebar-accent: 240 10% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 10% 18%;
+    --sidebar-ring: 145 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-glow-neon {
+    text-shadow: 0 0 10px hsl(145 100% 50% / 0.5), 0 0 40px hsl(145 100% 50% / 0.2);
+  }
+
+  .text-glow-purple {
+    text-shadow: 0 0 10px hsl(270 60% 40% / 0.5), 0 0 40px hsl(270 60% 40% / 0.2);
+  }
+
+  .bg-glass {
+    background: hsl(240 15% 8% / 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(240 10% 18% / 0.5);
+  }
+
+  .border-neon {
+    border-color: hsl(145 100% 50% / 0.3);
+  }
+
+  .border-neon-strong {
+    border-color: hsl(145 100% 50% / 0.6);
+  }
+
+  .gradient-neon-text {
+    background: linear-gradient(135deg, hsl(145 100% 50%), hsl(170 100% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-purple-text {
+    background: linear-gradient(135deg, hsl(270 50% 55%), hsl(290 70% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .grid-bg {
+    background-image: 
+      linear-gradient(hsl(240 10% 18% / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(240 10% 18% / 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
+
+/* Baocao markdown styles — light theme like markdownlivepreview.com */
+.baocao-markdown {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #24292e;
+  word-wrap: break-word;
+}
+
+.baocao-markdown h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 1.5em 0 0.6em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid #e1e4e8;
+  color: #1a1a2e;
+}
+
+.baocao-markdown h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 1.5em 0 0.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #e1e4e8;
+  color: #1a1a2e;
+}
+
+.baocao-markdown h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 1.2em 0 0.4em;
+  color: #2d3748;
+}
+
+.baocao-markdown h4 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 1em 0 0.3em;
+  color: #2d3748;
+}
+
+.baocao-markdown p {
+  margin: 0.6em 0;
+}
+
+.baocao-markdown a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.baocao-markdown a:hover {
+  text-decoration: underline;
+}
+
+.baocao-markdown blockquote {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-left: 4px solid #0366d6;
+  background: #f6f8fa;
+  color: #57606a;
+  border-radius: 0 6px 6px 0;
+}
+
+.baocao-markdown blockquote p {
+  margin: 0.3em 0;
+}
+
+.baocao-markdown code {
+  background: #f0f2f5;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  color: #e01e5a;
+}
+
+.baocao-markdown pre {
+  background: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 1em 0;
+  line-height: 1.5;
+}
+
+.baocao-markdown pre code {
+  background: none;
+  padding: 0;
+  color: #24292e;
+  font-size: 0.875em;
+}
+
+.baocao-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.9em;
+  overflow-x: auto;
+  display: block;
+}
+
+.baocao-markdown thead {
+  display: table-header-group;
+}
+
+.baocao-markdown tbody {
+  display: table-row-group;
+}
+
+.baocao-markdown tr {
+  display: table-row;
+  border-top: 1px solid #d0d7de;
+}
+
+.baocao-markdown table {
+  display: table;
+}
+
+.baocao-markdown th,
+.baocao-markdown td {
+  padding: 8px 14px;
+  border: 1px solid #d0d7de;
+  text-align: left;
+}
+
+.baocao-markdown th {
+  background: #f0f3f6;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.baocao-markdown tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.baocao-markdown ul,
+.baocao-markdown ol {
+  margin: 0.5em 0;
+  padding-left: 2em;
+}
+
+.baocao-markdown li {
+  margin: 0.25em 0;
+}
+
+.baocao-markdown hr {
+  border: none;
+  border-top: 2px solid #e1e4e8;
+  margin: 2em 0;
+}
+
+.baocao-markdown img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1em 0;
+  border: 1px solid #e1e4e8;
+  cursor: zoom-in;
+  transition: box-shadow 0.2s;
+}
+
+.baocao-markdown img:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+
+.lightbox-overlay img {
+  max-width: 95vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  user-select: none;
+  touch-action: none;
+}
+
+.lightbox-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.15s, background 0.15s;
+}
+
+.lightbox-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.baocao-markdown strong {
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.baocao-markdown em {
+  font-style: italic;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 10px hsl(145 100% 50% / 0.2), 0 0 30px hsl(145 100% 50% / 0.05);
+  }
+  50% { 
+    box-shadow: 0 0 20px hsl(145 100% 50% / 0.4), 0 0 60px hsl(145 100% 50% / 0.1);
+  }
+}
